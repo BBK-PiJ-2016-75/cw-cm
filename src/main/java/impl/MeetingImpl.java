@@ -11,7 +11,12 @@ import java.util.Set;
  * Created by Dennis on 17/03/2017.
  */
 public class MeetingImpl implements Meeting, PastMeeting {
-  public MeetingImpl(Calendar nowDate, Set<Contact> contacts) {
+  /**
+   * dennis.
+   * @param nowDate den
+   * @param contacts den
+   */
+  public MeetingImpl(final Calendar nowDate, final Set<Contact> contacts) {
 
   }
 
@@ -37,7 +42,7 @@ public class MeetingImpl implements Meeting, PastMeeting {
 
   /**
    * Return the details of people that attended the meeting.
-   * <p>
+   *
    * <p>The list contains a minimum of one contact (if there were
    * just two people: the user and the contact) and may contain an
    * arbitrary number of them.</p>
@@ -51,7 +56,7 @@ public class MeetingImpl implements Meeting, PastMeeting {
 
   /**
    * Returns the notes from the meeting.
-   * <p>
+   *
    * <p>If there are no notes, the empty string is returned.</p>
    *
    * @return the notes from the meeting.

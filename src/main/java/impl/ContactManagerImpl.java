@@ -1,6 +1,10 @@
 package impl;
 
-import spec.*;
+import spec.Contact;
+import spec.ContactManager;
+import spec.FutureMeeting;
+import spec.Meeting;
+import spec.PastMeeting;
 
 import java.util.Calendar;
 import java.util.List;
@@ -12,7 +16,7 @@ import java.util.Set;
 public class ContactManagerImpl implements ContactManager {
   /**
    * Add a new meeting to be held in the future.
-   * <p>
+   *
    * <p>An ID is returned when the meeting is put into the system. This
    * ID must be positive and non-zero.</p>
    *
@@ -24,13 +28,13 @@ public class ContactManagerImpl implements ContactManager {
    * @throws NullPointerException     if the meeting or the date are null
    */
   @Override
-  public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
+  public int addFutureMeeting(final Set<Contact> contacts, final Calendar date) {
     return 0;
   }
 
   /**
    * Returns the PAST meeting with the requested ID, or null if it there is none.
-   * <p>
+   *
    * <p>The meeting must have happened at a past date.</p>
    *
    * @param id the ID for the meeting
@@ -39,7 +43,7 @@ public class ContactManagerImpl implements ContactManager {
    *                               in the future
    */
   @Override
-  public PastMeeting getPastMeeting(int id) {
+  public PastMeeting getPastMeeting(final int id) {
     return null;
   }
 
@@ -52,7 +56,7 @@ public class ContactManagerImpl implements ContactManager {
    *                               in the past
    */
   @Override
-  public FutureMeeting getFutureMeeting(int id) {
+  public FutureMeeting getFutureMeeting(final int id) {
     return null;
   }
 
@@ -63,13 +67,13 @@ public class ContactManagerImpl implements ContactManager {
    * @return the meeting with the requested ID, or null if it there is none.
    */
   @Override
-  public Meeting getMeeting(int id) {
+  public Meeting getMeeting(final int id) {
     return null;
   }
 
   /**
    * Returns the list of future meetings scheduled with this contact.
-   * <p>
+   *
    * <p>If there are none, the returned list will be empty. Otherwise,
    * the list will be chronologically sorted and will not contain any
    * duplicates.</p>
@@ -80,14 +84,14 @@ public class ContactManagerImpl implements ContactManager {
    * @throws NullPointerException     if the contact is null
    */
   @Override
-  public List<Meeting> getFutureMeetingList(Contact contact) {
+  public List<Meeting> getFutureMeetingList(final Contact contact) {
     return null;
   }
 
   /**
    * Returns the list of meetings that are scheduled for, or that took
    * place on, the specified date.
-   * <p>
+   *
    * <p>If there are none, the returned list will be empty. Otherwise,
    * the list will be chronologically sorted and will not contain any
    * duplicates.</p>
@@ -97,13 +101,13 @@ public class ContactManagerImpl implements ContactManager {
    * @throws NullPointerException if the date are null
    */
   @Override
-  public List<Meeting> getMeetingListOn(Calendar date) {
+  public List<Meeting> getMeetingListOn(final Calendar date) {
     return null;
   }
 
   /**
    * Returns the list of past meetings in which this contact has participated.
-   * <p>
+   *
    * <p>If there are none, the returned list will be empty. Otherwise,
    * the list will be chronologically sorted and will not contain any
    * duplicates.</p>
@@ -114,7 +118,7 @@ public class ContactManagerImpl implements ContactManager {
    * @throws NullPointerException     if the contact is null
    */
   @Override
-  public List<PastMeeting> getPastMeetingListFor(Contact contact) {
+  public List<PastMeeting> getPastMeetingListFor(final Contact contact) {
     return null;
   }
 
@@ -131,16 +135,17 @@ public class ContactManagerImpl implements ContactManager {
    * @throws NullPointerException     if any of the arguments is null
    */
   @Override
-  public int addNewPastMeeting(Set<Contact> contacts, Calendar date, String text) {
+  public int addNewPastMeeting(final Set<Contact> contacts, final Calendar date,
+                               final String text) {
     return 0;
   }
 
   /**
    * Add notes to a meeting.
-   * <p>
+   *
    * <p>This method is used when a future meeting takes place, and is
    * then converted to a past meeting (with notes) and returned.</p>
-   * <p>
+   *
    * <p>It can be also used to add notes to a past meeting at a later date.</p>
    *
    * @param id   the ID of the meeting
@@ -150,7 +155,7 @@ public class ContactManagerImpl implements ContactManager {
    * @throws NullPointerException     if the notes are null
    */
   @Override
-  public PastMeeting addMeetingNotes(int id, String text) {
+  public PastMeeting addMeetingNotes(final int id, final String text) {
     return null;
   }
 
@@ -164,13 +169,13 @@ public class ContactManagerImpl implements ContactManager {
    * @throws NullPointerException     if the name or the notes are null
    */
   @Override
-  public int addNewContact(String name, String notes) {
+  public int addNewContact(final String name, final String notes) {
     return 0;
   }
 
   /**
    * Returns a set with the contacts whose name contains that string.
-   * <p>
+   *
    * <p>If the string is the empty string, this methods returns the set
    * that contains all current contacts.</p>
    *
@@ -179,7 +184,7 @@ public class ContactManagerImpl implements ContactManager {
    * @throws NullPointerException if the parameter is null
    */
   @Override
-  public Set<Contact> getContacts(String name) {
+  public Set<Contact> getContacts(final String name) {
     return null;
   }
 
@@ -193,13 +198,13 @@ public class ContactManagerImpl implements ContactManager {
    *                                  any of the provided IDs does not correspond to a real contact
    */
   @Override
-  public Set<Contact> getContacts(int... ids) {
+  public Set<Contact> getContacts(final int... ids) {
     return null;
   }
 
   /**
    * Save all data to disk.
-   * <p>
+   *
    * <p>This method must be executed when the program is
    * closed and when/if the user requests it.</p>
    */

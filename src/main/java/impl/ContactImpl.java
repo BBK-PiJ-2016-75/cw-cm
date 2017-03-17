@@ -6,11 +6,20 @@ import spec.Contact;
  * Created by Dennis on 17/03/2017.
  */
 public class ContactImpl implements Contact {
-  public ContactImpl(String sue, String notes) {
+  /**
+   * dennis.
+   * @param sue den
+   * @param notes den
+   */
+  public ContactImpl(final String sue, final String notes) {
 
   }
 
-  public ContactImpl(String name) {
+  /**
+   * dennis.
+   * @param name den
+   */
+  public ContactImpl(final String name) {
 
   }
 
@@ -36,7 +45,7 @@ public class ContactImpl implements Contact {
 
   /**
    * Returns our notes about the contact, if any.
-   * <p>
+   *
    * <p>If we have not written anything about the contact, the empty
    * string is returned.</p>
    *
@@ -53,7 +62,7 @@ public class ContactImpl implements Contact {
    * @param note the notes to be added
    */
   @Override
-  public void addNotes(String note) {
+  public void addNotes(final String note) {
 
   }
 }

@@ -28,7 +28,7 @@ public class MockContactImpl implements Contact {
 
   /**
    * Returns our notes about the contact, if any.
-   * <p>
+   *
    * <p>If we have not written anything about the contact, the empty
    * string is returned.</p>
    *
@@ -45,7 +45,7 @@ public class MockContactImpl implements Contact {
    * @param note the notes to be added
    */
   @Override
-  public void addNotes(String note) {
+  public void addNotes(final String note) {
 
   }
 }

@@ -5,7 +5,7 @@ import java.util.Set;
 
 /**
  * A class to represent meetings.
- * <p>
+ *
  * <p>Meetings have unique IDs, scheduled date and a list of participating contacts.</p>
  */
 public interface Meeting {
@@ -25,7 +25,7 @@ public interface Meeting {
 
   /**
    * Return the details of people that attended the meeting.
-   * <p>
+   *
    * <p>The list contains a minimum of one contact (if there were
    * just two people: the user and the contact) and may contain an
    * arbitrary number of them.</p>
