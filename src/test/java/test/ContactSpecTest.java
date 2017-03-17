@@ -8,7 +8,7 @@ import spec.Contact;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-public class ContactTest {
+public class ContactSpecTest {
 
   @Before
   public void setUp() {

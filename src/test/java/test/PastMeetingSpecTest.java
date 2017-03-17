@@ -13,7 +13,7 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
-public class PastMeetingTest {
+public class PastMeetingSpecTest {
 
   Calendar pastDate;
   Set<Contact> contacts;

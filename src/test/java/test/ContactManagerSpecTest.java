@@ -13,7 +13,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
-public class ContactManagerTest {
+public class ContactManagerSpecTest {
 
   private ContactManager contactManager;
   private Calendar nowDate;
