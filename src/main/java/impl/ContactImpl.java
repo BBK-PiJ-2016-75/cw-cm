@@ -17,6 +17,9 @@ public class ContactImpl implements Contact {
    * @param notes den
    */
   public ContactImpl(final int id, final String name, final String notes) {
+    this.contactId = id;
+    this.name = name;
+    this.notes = notes;
   }
 
   /**
@@ -59,7 +62,7 @@ public class ContactImpl implements Contact {
    */
   @Override
   public String getNotes() {
-    return null;
+    return notes;
   }
 
   /**

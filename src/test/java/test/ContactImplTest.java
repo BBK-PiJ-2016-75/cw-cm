@@ -52,12 +52,11 @@ public class ContactImplTest {
     assertEquals("Precocious", maggie.getNotes());
   }
 
-  //  @Test
+//  @Test
 //  public void getNotes() throws Exception {
 //  }
 
 //  @Test
 //  public void addNotes() throws Exception {
 //  }
-
 }
