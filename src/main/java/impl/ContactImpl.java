@@ -3,7 +3,10 @@ package impl;
 import spec.Contact;
 
 /**
- * Created by Dennis on 18/03/2017.
+ * A contact is a person we are making business with or may do in the future.
+ *
+ * <p>Contacts have an ID (unique, a non-zero positive integer), a name (not
+ * necessarily unique), and notes that the user may want to save about them.</p>
  */
 public class ContactImpl implements Contact {
   private int contactId;
@@ -11,10 +14,10 @@ public class ContactImpl implements Contact {
   private String notes;
 
   /**
-   * dennis.
-   * @param id den
-   * @param name den
-   * @param notes den
+   * Constructs a contact from a provided id, name, and notes.
+   * @param id the contact's id number
+   * @param name the contact's name
+   * @param notes relevant notes on the contact
    */
   public ContactImpl(final int id, final String name, final String notes) {
     if (id < 1) {
@@ -29,9 +32,9 @@ public class ContactImpl implements Contact {
   }
 
   /**
-   * dennis.
-   * @param id den
-   * @param name den
+   * Constructs a contact from a provided id, and name.
+   * @param id the contact's id number
+   * @param name the contact's name
    */
   public ContactImpl(final int id, final String name) {
     if (id < 1) {
@@ -85,6 +88,10 @@ public class ContactImpl implements Contact {
    */
   @Override
   public void addNotes(final String note) {
-    this.notes = note;
+    if (notes.equals("")) {
+      this.notes = note;
+    } else {
+      notes += ", " + note;
+    }
   }
 }
