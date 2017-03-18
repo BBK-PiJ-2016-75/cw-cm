@@ -28,6 +28,9 @@ public class ContactImpl implements Contact {
    * @param name den
    */
   public ContactImpl(final int id, final String name) {
+    if (id < 1) {
+      throw new IllegalArgumentException();
+    }
     this.contactId = id;
     this.name = name;
   }
