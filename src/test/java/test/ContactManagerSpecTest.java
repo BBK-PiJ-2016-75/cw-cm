@@ -110,7 +110,7 @@ public class ContactManagerSpecTest {
   public void testAddFutureMeetingContactNotFoundThrowsException() {
     contactManager.addNewContact("mike", "notes");
     Set<Contact> outsideContactSet = new HashSet<Contact>();
-    outsideContactSet.add(new ContactImpl("sue", "notes"));
+    outsideContactSet.add(new ContactImpl(1, "sue", "notes"));
 
     try {
       contactManager.addFutureMeeting(outsideContactSet, futureDate);
@@ -138,7 +138,7 @@ public class ContactManagerSpecTest {
     Set<Contact> mikeSet = contactManager.getContacts("mike");
     contactManager.addFutureMeeting(mikeSet, futureDate);
 
-    Contact sue = new ContactImpl("sue", "notes");
+    Contact sue = new ContactImpl(1, "sue", "notes");
     try {
       contactManager.getFutureMeetingList(sue);
       fail();
@@ -191,7 +191,7 @@ public class ContactManagerSpecTest {
 
   @Test
   public void testAddFutureDateReturnsId() {
-    Contact mike = new ContactImpl("mike", "notes");
+    Contact mike = new ContactImpl(1, "mike", "notes");
     contactManager.addNewContact("mike", "notes");
     Set<Contact> mikeSet = contactManager.getContacts("mike");
 
@@ -207,7 +207,7 @@ public class ContactManagerSpecTest {
   public void testAddNewPastMeetingContactNotFoundThrowsException() {
     contactManager.addNewContact("mike", "notes");
     Set<Contact> outsideContactSet = new HashSet<Contact>();
-    outsideContactSet.add(new ContactImpl("sue", "notes"));
+    outsideContactSet.add(new ContactImpl(1, "sue", "notes"));
 
     try {
       contactManager.addNewPastMeeting(outsideContactSet, pastDate, "text");
@@ -257,7 +257,7 @@ public class ContactManagerSpecTest {
     Set<Contact> mikeSet = contactManager.getContacts("mike");
     contactManager.addNewPastMeeting(mikeSet, pastDate, "text");
 
-    Contact sue = new ContactImpl("sue", "notes");
+    Contact sue = new ContactImpl(1, "sue", "notes");
     try {
       contactManager.getPastMeetingListFor(sue);
       fail();

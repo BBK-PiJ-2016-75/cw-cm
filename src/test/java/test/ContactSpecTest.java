@@ -18,7 +18,7 @@ public class ContactSpecTest {
   @Test
   public void testContactConstructorName() {
     try {
-      new ContactImpl("name");
+      new ContactImpl(1, "name");
     } catch (Exception e) {
       fail(e.getMessage());
     }
@@ -26,14 +26,14 @@ public class ContactSpecTest {
 
   @Test
   public void testContactConstructorSetName() {
-    Contact sue = new ContactImpl("sue");
+    Contact sue = new ContactImpl(1, "sue");
     assertEquals("sue", sue.getName());
   }
 
   @Test
   public void testContactConstructorNameNotes() {
     try {
-      new ContactImpl("name", "notes");
+      new ContactImpl(1, "name", "notes");
     } catch (Exception e) {
       fail(e.getMessage());
     }
@@ -41,20 +41,20 @@ public class ContactSpecTest {
 
   @Test
   public void testContactConstructorSetNameNotes() {
-    Contact sue = new ContactImpl("sue", "notes1");
+    Contact sue = new ContactImpl(1, "sue", "notes1");
     assertEquals("sue", sue.getName());
     assertEquals("notes1", sue.getNotes());
   }
 
   @Test
   public void testGetNotesNone() {
-    Contact sue = new ContactImpl("sue");
+    Contact sue = new ContactImpl(1, "sue");
     assertEquals("", sue.getNotes());
   }
 
   @Test
   public void testAddNotesSingle() {
-    Contact sue = new ContactImpl("sue");
+    Contact sue = new ContactImpl(1, "sue");
     sue.addNotes("notes1");
     assertEquals("notes1", sue.getNotes());
   }
@@ -62,7 +62,7 @@ public class ContactSpecTest {
 
   @Test
   public void testAddNotesMultiple() {
-    Contact sue = new ContactImpl("sue", "notes1");
+    Contact sue = new ContactImpl(1, "sue", "notes1");
     sue.addNotes("notes2");
     sue.addNotes("notes3");
     String returned = sue.getNotes();
@@ -74,8 +74,8 @@ public class ContactSpecTest {
 
   @Test
   public void testContactUniqueIds() {
-    Contact jim = new ContactImpl("jim");
-    Contact mike = new ContactImpl("mike");
+    Contact jim = new ContactImpl(1, "jim");
+    Contact mike = new ContactImpl(2, "mike");
 
     assertThat(jim.getId(), is(not(equalTo(mike.getId()))));
   }
