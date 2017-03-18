@@ -58,9 +58,18 @@ public class ContactImplTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void testContactIdGreaterThanZero() throws IllegalArgumentException {
+  public void testContactIdName_IdLessThanZero() {
+    ContactImpl homer = new ContactImpl(-1, "Marge");;
+  }
 
-    ContactImpl marge = new ContactImpl(0, "Marge", "Hmmmmm");
+  @Test(expected = IllegalArgumentException.class)
+  public void testContactIdNameNotes_IdIsZero() {
+    ContactImpl homer = new ContactImpl(0, "Bart", "Underachiever");;
+  }
+  
+  @Test(expected = IllegalArgumentException.class)
+  public void testContactIdNameNotes_IdLessThanZero() {
+    ContactImpl homer = new ContactImpl(-1, "Maggie", "Precocious");;
   }
 
 //  @Test
