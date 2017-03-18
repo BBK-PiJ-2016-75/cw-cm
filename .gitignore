@@ -97,4 +97,5 @@ gradle-app.setting
 
 /config/
 /project/
+/src/build/
 /target/
