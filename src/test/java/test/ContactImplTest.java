@@ -1,8 +1,11 @@
 package test;
 
+import impl.ContactImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by Dennis on 18/03/2017.
@@ -17,19 +20,35 @@ public class ContactImplTest {
   }
 
   @Test
-  public void getId() throws Exception {
+  public void testContactIdName_Constructor() throws Exception {
+    try {
+      new ContactImpl(0, "Homer");
+    } catch (Exception e) {
+      fail(e.getMessage());
+    }
   }
 
   @Test
-  public void getName() throws Exception {
+  public void testContactIdName_GetIdGetName() throws Exception {
+    ContactImpl marge = new ContactImpl(1, "Marge");
+    assertEquals(1, marge.getId());
+    assertEquals("Marge", marge.getName());
   }
 
-  @Test
-  public void getNotes() throws Exception {
-  }
+//  @Test
+//  public void getId() throws Exception {
+//  }
 
-  @Test
-  public void addNotes() throws Exception {
-  }
+//  @Test
+//  public void getName() throws Exception {
+//  }
+
+//  @Test
+//  public void getNotes() throws Exception {
+//  }
+
+//  @Test
+//  public void addNotes() throws Exception {
+//  }
 
 }
