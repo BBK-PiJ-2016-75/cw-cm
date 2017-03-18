@@ -20,7 +20,7 @@ public class ContactImplTest {
   }
 
   @Test
-  public void testContactIdName_Constructor() throws Exception {
+  public void testContactIdName_Constructor() {
     try {
       new ContactImpl(1, "Homer");
     } catch (Exception e) {
@@ -29,14 +29,14 @@ public class ContactImplTest {
   }
 
   @Test
-  public void testContactIdName_GetIdGetName() throws Exception {
+  public void testContactIdName_GetIdGetName() {
     ContactImpl marge = new ContactImpl(2, "Marge");
     assertEquals(2, marge.getId());
     assertEquals("Marge", marge.getName());
   }
 
   @Test
-  public void testContactIdNameNotes_Constructor() throws Exception {
+  public void testContactIdNameNotes_Constructor() {
     try {
       new ContactImpl(3, "Bart", "Underachiever");
     } catch (Exception e) {
@@ -45,7 +45,7 @@ public class ContactImplTest {
   }
 
   @Test
-  public void testContactIdNameNotes_GetIdGetNameGetNotes() throws Exception {
+  public void testContactIdNameNotes_GetIdGetNameGetNotes() {
     ContactImpl maggie = new ContactImpl(4, "Maggie", "Precocious");
     assertEquals(4, maggie.getId());
     assertEquals("Maggie", maggie.getName());
@@ -66,10 +66,15 @@ public class ContactImplTest {
   public void testContactIdNameNotes_IdIsZero() {
     ContactImpl homer = new ContactImpl(0, "Bart", "Underachiever");;
   }
-  
+
   @Test(expected = IllegalArgumentException.class)
   public void testContactIdNameNotes_IdLessThanZero() {
     ContactImpl homer = new ContactImpl(-1, "Maggie", "Precocious");;
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testContactIdName_NameIsNull() throws Exception {
+    ContactImpl contact = new ContactImpl(1, null);
   }
 
 //  @Test
