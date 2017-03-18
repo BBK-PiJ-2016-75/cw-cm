@@ -87,7 +87,13 @@ public class ContactImplTest {
     ContactImpl marge = new ContactImpl(2, "Marge", null);
   }
 
-  //  @Test
+  @Test
+  public void testContactIdName_AddNote() {
+    ContactImpl homer = new ContactImpl(1, "Homer");
+    assertEquals("", homer.getNotes());
+  }
+
+//  @Test
 //  public void getNotes() throws Exception {
 //  }
 
