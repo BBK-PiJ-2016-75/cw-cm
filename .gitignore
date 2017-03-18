@@ -95,4 +95,6 @@ gradle-app.setting
 
 # End of https://www.gitignore.io/api/java,jetbrains,gradle
 
-/target/streams/
+/config/
+/project/
+/target/
