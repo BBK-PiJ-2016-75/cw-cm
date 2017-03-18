@@ -22,7 +22,7 @@ public class ContactImplTest {
   @Test
   public void testContactIdName_Constructor() throws Exception {
     try {
-      new ContactImpl(0, "Homer");
+      new ContactImpl(1, "Homer");
     } catch (Exception e) {
       fail(e.getMessage());
     }
@@ -30,20 +30,29 @@ public class ContactImplTest {
 
   @Test
   public void testContactIdName_GetIdGetName() throws Exception {
-    ContactImpl marge = new ContactImpl(1, "Marge");
-    assertEquals(1, marge.getId());
+    ContactImpl marge = new ContactImpl(2, "Marge");
+    assertEquals(2, marge.getId());
     assertEquals("Marge", marge.getName());
   }
 
-//  @Test
-//  public void getId() throws Exception {
-//  }
+  @Test
+  public void testContactIdNameNotes_Constructor() throws Exception {
+    try {
+      new ContactImpl(3, "Bart", "Underachiever");
+    } catch (Exception e) {
+      fail(e.getMessage());
+    }
+  }
 
-//  @Test
-//  public void getName() throws Exception {
-//  }
+  @Test
+  public void testContactIdNameNotes_GetIdGetNameGetNotes() throws Exception {
+    ContactImpl maggie = new ContactImpl(4, "Maggie", "Precocious");
+    assertEquals(4, maggie.getId());
+    assertEquals("Maggie", maggie.getName());
+    assertEquals("Precocious", maggie.getNotes());
+  }
 
-//  @Test
+  //  @Test
 //  public void getNotes() throws Exception {
 //  }
 
