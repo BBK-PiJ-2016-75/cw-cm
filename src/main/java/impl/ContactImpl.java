@@ -85,6 +85,6 @@ public class ContactImpl implements Contact {
    */
   @Override
   public void addNotes(final String note) {
-
+    this.notes = note;
   }
 }

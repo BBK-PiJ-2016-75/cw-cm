@@ -109,11 +109,15 @@ public class ContactImplTest {
     assertEquals("Saxophonist", maggie.getNotes());
   }
 
-  //  @Test
-//  public void getNotes() throws Exception {
-//  }
-
-//  @Test
-//  public void addNotes() throws Exception {
-//  }
+  @Test
+  public void testContact_AddNotes() {
+    ContactImpl bart = new ContactImpl(3, "Bart");
+    ContactImpl maggie = new ContactImpl(4, "Maggie", "Precocious");
+    bart.addNotes("Underachiever");
+    bart.addNotes("and proud of it, man!");
+    maggie.addNotes("Saxophonist");
+    maggie.addNotes("and Vegetarian.");
+    assertEquals("Underachiever, and proud of it, man!", bart.getNotes());
+    assertEquals("Saxophonist, and Vegetarian.", maggie.getNotes());
+  }
 }
