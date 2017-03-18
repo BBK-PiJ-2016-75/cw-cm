@@ -11,9 +11,16 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by Dennis on 17/03/2017.
+ * Created by Dennis on 18/03/2017.
  */
 public class ContactManagerImpl implements ContactManager {
+
+  /**
+   * dennis.
+   */
+  public ContactManagerImpl() {
+  }
+
   /**
    * Add a new meeting to be held in the future.
    *
@@ -150,6 +157,7 @@ public class ContactManagerImpl implements ContactManager {
    *
    * @param id   the ID of the meeting
    * @param text messages to be added about the meeting.
+   * @return the past meeting (with notes)
    * @throws IllegalArgumentException if the meeting does not exist
    * @throws IllegalStateException    if the meeting is set for a date in the future
    * @throws NullPointerException     if the notes are null

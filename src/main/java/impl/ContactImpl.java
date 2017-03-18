@@ -3,24 +3,25 @@ package impl;
 import spec.Contact;
 
 /**
- * Created by Dennis on 17/03/2017.
+ * Created by Dennis on 18/03/2017.
  */
 public class ContactImpl implements Contact {
+
   /**
    * dennis.
-   * @param sue den
+   * @param id den
+   * @param name den
    * @param notes den
    */
-  public ContactImpl(final String sue, final String notes) {
-
+  public ContactImpl(final int id, final String name, final String notes) {
   }
 
   /**
    * dennis.
+   * @param id den
    * @param name den
    */
-  public ContactImpl(final String name) {
-
+  public ContactImpl(final int id, final String name) {
   }
 
   /**

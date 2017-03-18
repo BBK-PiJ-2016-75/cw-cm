@@ -2,22 +2,22 @@ package impl;
 
 import spec.Contact;
 import spec.Meeting;
-import spec.PastMeeting;
 
 import java.util.Calendar;
 import java.util.Set;
 
 /**
- * Created by Dennis on 17/03/2017.
+ * Created by Dennis on 18/03/2017.
  */
-public class MeetingImpl implements Meeting, PastMeeting {
+public abstract class MeetingImpl implements Meeting {
+
   /**
    * dennis.
-   * @param nowDate den
+   * @param id den
+   * @param date den
    * @param contacts den
    */
-  public MeetingImpl(final Calendar nowDate, final Set<Contact> contacts) {
-
+  public MeetingImpl(final int id, final Calendar date, final Set<Contact> contacts) {
   }
 
   /**
@@ -51,18 +51,6 @@ public class MeetingImpl implements Meeting, PastMeeting {
    */
   @Override
   public Set<Contact> getContacts() {
-    return null;
-  }
-
-  /**
-   * Returns the notes from the meeting.
-   *
-   * <p>If there are no notes, the empty string is returned.</p>
-   *
-   * @return the notes from the meeting.
-   */
-  @Override
-  public String getNotes() {
     return null;
   }
 }

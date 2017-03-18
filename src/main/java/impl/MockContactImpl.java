@@ -3,7 +3,7 @@ package impl;
 import spec.Contact;
 
 /**
- * Created by Dennis on 17/03/2017.
+ * Created by Dennis on 18/03/2017.
  */
 public class MockContactImpl implements Contact {
   /**

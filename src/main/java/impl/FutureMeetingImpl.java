@@ -1,7 +1,7 @@
 package impl;
 
 import spec.Contact;
-import spec.Meeting;
+import spec.FutureMeeting;
 
 import java.util.Calendar;
 import java.util.Set;
@@ -9,13 +9,16 @@ import java.util.Set;
 /**
  * Created by Dennis on 18/03/2017.
  */
-public class MockMeetingImpl implements Meeting {
+public class FutureMeetingImpl extends MeetingImpl implements FutureMeeting {
+
   /**
    * dennis.
+   * @param id den
    * @param date den
    * @param contacts den
    */
-  public MockMeetingImpl(final Calendar date, final Set<Contact> contacts) {
+  public FutureMeetingImpl(final int id, final Calendar date, final Set<Contact> contacts) {
+    super(id, date, contacts);
   }
 
   /**

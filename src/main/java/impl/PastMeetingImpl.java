@@ -1,7 +1,7 @@
 package impl;
 
 import spec.Contact;
-import spec.Meeting;
+import spec.PastMeeting;
 
 import java.util.Calendar;
 import java.util.Set;
@@ -9,13 +9,18 @@ import java.util.Set;
 /**
  * Created by Dennis on 18/03/2017.
  */
-public class MockMeetingImpl implements Meeting {
+public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
+
   /**
    * dennis.
+   * @param id den
    * @param date den
    * @param contacts den
+   * @param notes den
    */
-  public MockMeetingImpl(final Calendar date, final Set<Contact> contacts) {
+  public PastMeetingImpl(final int id, final Calendar date, final Set<Contact> contacts,
+                         final String notes) {
+    super(id, date, contacts);
   }
 
   /**
@@ -49,6 +54,18 @@ public class MockMeetingImpl implements Meeting {
    */
   @Override
   public Set<Contact> getContacts() {
+    return null;
+  }
+
+  /**
+   * Returns the notes from the meeting.
+   *
+   * <p>If there are no notes, the empty string is returned.</p>
+   *
+   * @return the notes from the meeting.
+   */
+  @Override
+  public String getNotes() {
     return null;
   }
 }
