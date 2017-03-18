@@ -34,6 +34,9 @@ public class ContactImpl implements Contact {
     if (id < 1) {
       throw new IllegalArgumentException();
     }
+    if (name == null) {
+      throw new NullPointerException();
+    }
     this.contactId = id;
     this.name = name;
   }
