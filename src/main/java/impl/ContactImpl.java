@@ -42,6 +42,7 @@ public class ContactImpl implements Contact {
     }
     this.contactId = id;
     this.name = name;
+    this.notes = "";
   }
 
   /**

@@ -88,12 +88,28 @@ public class ContactImplTest {
   }
 
   @Test
-  public void testContactIdName_AddNote() {
+  public void testContactIdName_GetNotes() {
     ContactImpl homer = new ContactImpl(1, "Homer");
     assertEquals("", homer.getNotes());
   }
 
-//  @Test
+  @Test
+  public void testContactIdNameNotes_GetNotes() {
+    ContactImpl marge = new ContactImpl(2, "Marge", "Hmmmmm");
+    assertEquals("Hmmmmm", marge.getNotes());
+  }
+
+  @Test
+  public void testContact_AddNote() {
+    ContactImpl bart = new ContactImpl(3, "Bart");
+    ContactImpl maggie = new ContactImpl(4, "Maggie", "Precocious");
+    bart.addNotes("Underachiever");
+    maggie.addNotes("Saxophonist");
+    assertEquals("Underachiever", bart.getNotes());
+    assertEquals("Saxophonist", maggie.getNotes());
+  }
+
+  //  @Test
 //  public void getNotes() throws Exception {
 //  }
 
