@@ -73,11 +73,21 @@ public class ContactImplTest {
   }
 
   @Test(expected = NullPointerException.class)
-  public void testContactIdName_NameIsNull() throws Exception {
-    ContactImpl contact = new ContactImpl(1, null);
+  public void testContactIdName_NameIsNull() {
+    ContactImpl homer = new ContactImpl(1, null);
   }
 
-//  @Test
+  @Test(expected = NullPointerException.class)
+  public void testContactIdNameNotes_NameIsNull() {
+    ContactImpl marge = new ContactImpl(2, null, "Hmmmmm");
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testContactIdNameNotes_NotesIsNull() {
+    ContactImpl marge = new ContactImpl(2, "Marge", null);
+  }
+
+  //  @Test
 //  public void getNotes() throws Exception {
 //  }
 
