@@ -52,6 +52,17 @@ public class ContactImplTest {
     assertEquals("Precocious", maggie.getNotes());
   }
 
+  @Test(expected = IndexOutOfBoundsException.class)
+  public void testContactIdName_LessThanOne() {
+    ContactImpl homer = new ContactImpl(-1, "Homer");;
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testContactIdGreaterThanZero() throws IllegalArgumentException {
+
+    ContactImpl marge = new ContactImpl(0, "Marge", "Hmmmmm");
+  }
+
 //  @Test
 //  public void getNotes() throws Exception {
 //  }
