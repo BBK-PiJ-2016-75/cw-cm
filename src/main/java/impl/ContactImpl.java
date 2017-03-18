@@ -6,6 +6,9 @@ import spec.Contact;
  * Created by Dennis on 18/03/2017.
  */
 public class ContactImpl implements Contact {
+  private int contactId;
+  private String name;
+  private String notes;
 
   /**
    * dennis.
@@ -22,6 +25,8 @@ public class ContactImpl implements Contact {
    * @param name den
    */
   public ContactImpl(final int id, final String name) {
+    this.contactId = id;
+    this.name = name;
   }
 
   /**
@@ -31,7 +36,7 @@ public class ContactImpl implements Contact {
    */
   @Override
   public int getId() {
-    return 0;
+    return contactId;
   }
 
   /**
@@ -41,7 +46,7 @@ public class ContactImpl implements Contact {
    */
   @Override
   public String getName() {
-    return null;
+    return name;
   }
 
   /**
