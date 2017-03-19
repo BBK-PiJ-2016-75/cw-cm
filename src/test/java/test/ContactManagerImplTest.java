@@ -4,9 +4,12 @@ import impl.ContactManagerImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import spec.Contact;
 
 import java.util.Calendar;
+import java.util.Set;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 /**
@@ -103,7 +106,23 @@ public class ContactManagerImplTest {
   }
 
   @Test
-  public void getContacts1() {
+  public void testContactManager_getContactsName() {
+    contactManager.addNewContact("Homer", "Donuts");
+    contactManager.addNewContact("Marge", "Hmmmmm");
+    contactManager.addNewContact("Bart", "Underachiever");
+    contactManager.addNewContact("Lisa", "Precocious");
+    contactManager.addNewContact("Maggie", "*suck*");
+    Set<Contact> nameMa = contactManager.getContacts("Ma");
+    Set<Contact> nameLisa = contactManager.getContacts("Lisa");
+    Set<Contact> nameMoe = contactManager.getContacts("Moe");
+    assertEquals(2, nameMa.size());
+    assertEquals(1, nameLisa.size());
+    assertEquals(0, nameMoe.size());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testContactManager_getContactsIdIsIllegal() {
+    contactManager.getContacts(-1);
   }
 
   @Test

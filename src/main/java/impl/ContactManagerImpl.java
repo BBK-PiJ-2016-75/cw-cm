@@ -6,10 +6,7 @@ import spec.FutureMeeting;
 import spec.Meeting;
 import spec.PastMeeting;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Dennis on 18/03/2017.
@@ -213,9 +210,15 @@ public class ContactManagerImpl implements ContactManager {
   @Override
   public Set<Contact> getContacts(final String name) {
     if (name == null) {
-
+      throw new NullPointerException();
     }
-    return null;
+    Set<Contact> result = new LinkedHashSet<>();
+    for (Contact attendee : attendees.values()) {
+      if (name.equals("") || attendee.getName().contains(name)) {
+        result.add(attendee);
+      }
+    }
+    return result;
   }
 
   /**
