@@ -56,6 +56,12 @@ public class ContactManagerImplTest {
     contactManager.addFutureMeeting(attendees, null);
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void testContactManager_addFutureMeetingDateIsPast() {
+    Set<Contact> attendees = new HashSet<>();
+    contactManager.addFutureMeeting(attendees, pastDate);
+  }
+
   @Test
   public void getPastMeeting() {
   }

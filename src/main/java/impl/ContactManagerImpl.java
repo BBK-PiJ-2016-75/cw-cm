@@ -42,7 +42,7 @@ public class ContactManagerImpl implements ContactManager {
    */
   @Override
   public int addFutureMeeting(final Set<Contact> contacts, final Calendar date) {
-    if (contacts == null) {
+    if (contacts == null || date == null) {
       throw new NullPointerException();
     }
     return 0;
