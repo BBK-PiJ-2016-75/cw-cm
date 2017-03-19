@@ -122,6 +122,15 @@ public class ContactManagerImplTest {
     contactManager.addNewPastMeeting(attendees, pastDate, "Was fascinating");
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void testContactManager_addNewPastMeetingContactsIncludesUnknown() {
+    contactManager.addNewContact("Homer", "Donuts");
+    contactManager.addNewContact("Marge", "Hmmmmm");
+    Set<Contact> attendees = contactManager.getContacts("");
+    attendees.add(new ContactImpl(1, "Bart"));
+    contactManager.addNewPastMeeting(attendees, pastDate, "Was fascinating");
+  }
+
   @Test
   public void addMeetingNotes() {
   }
