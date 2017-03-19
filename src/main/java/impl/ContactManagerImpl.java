@@ -170,13 +170,22 @@ public class ContactManagerImpl implements ContactManager {
       throw new NullPointerException();
     }
     if (contacts.isEmpty()) {
-      throw new IllegalArgumentException();
+      throw new IllegalArgumentException("No contacts provided.");
+    }
+    for (Contact contact : contacts) {
+      if (!attendees.containsValue(contact)) {
+        throw new IllegalArgumentException("Unknown contact.");
+      }
     }
     Calendar currentDate = Calendar.getInstance();
     if (date.after(currentDate)) {
       throw new IllegalArgumentException("The date is in the future.");
     }
-    return 0;
+    int result = meetingIndex;
+    Meeting meeting = new PastMeetingImpl(meetingIndex, date, contacts, text);
+    meetings.put(meetingIndex, meeting);
+    meetingIndex++;
+    return result;
   }
 
   /**

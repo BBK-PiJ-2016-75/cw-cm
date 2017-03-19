@@ -131,8 +131,9 @@ public class ContactManagerImplTest {
     contactManager.addNewPastMeeting(attendees, pastDate, "Was fascinating");
   }
 
-  @Test
-  public void addMeetingNotes() {
+  @Test(expected = NullPointerException.class)
+  public void testContactManager_addMeetingNotesIsNull() {
+    contactManager.addMeetingNotes(1, null);
   }
 
   @Test(expected = NullPointerException.class)
