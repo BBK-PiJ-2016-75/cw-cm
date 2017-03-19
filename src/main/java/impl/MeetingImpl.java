@@ -24,6 +24,9 @@ public abstract class MeetingImpl implements Meeting {
     if (id < 1) {
       throw new IllegalArgumentException();
     }
+    if (date == null) {
+      throw new NullPointerException();
+    }
     this.meetingId = id;
     this.date = date;
     this.contacts = contacts;

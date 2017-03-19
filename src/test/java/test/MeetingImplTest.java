@@ -63,6 +63,11 @@ public class MeetingImplTest {
 
   @Test(expected = NullPointerException.class)
   public void testMeeting_DateIsNull() {
-    Meeting meeting = new MockMeetingImpl(-1, null, contacts);
+    Meeting meeting = new MockMeetingImpl(1, null, contacts);
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testMeeting_ContactsIsNull() {
+    Meeting meeting = new MockMeetingImpl(1, date, null);
   }
 }
