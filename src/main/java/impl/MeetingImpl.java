@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Dennis on 18/03/2017.
+ * A class to represent meetings.
+ *
+ * <p>Meetings have unique IDs, scheduled date and a list of participating contacts.</p>
  */
 public abstract class MeetingImpl implements Meeting {
   private final int meetingId;
@@ -16,10 +18,10 @@ public abstract class MeetingImpl implements Meeting {
   private final HashSet<Contact> contacts;
 
   /**
-   * dennis.
-   * @param id den
-   * @param date den
-   * @param contacts den
+   * Constructs a meeting from a provided id, date, and set of contacts.
+   * @param id the meeting's id number
+   * @param date the meeting's date
+   * @param contacts the set of attending contacts
    */
   MeetingImpl(final int id, final Calendar date, final Set<Contact> contacts) {
     if (id < 1) {
