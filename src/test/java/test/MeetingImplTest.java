@@ -85,4 +85,12 @@ public class MeetingImplTest {
     testDate.add(Calendar.YEAR, 1);
     assertFalse(testDate.get(Calendar.YEAR) == meeting.getDate().get(Calendar.YEAR));
   }
+
+  @Test
+  public void testMeeting_ContactsIsMutable() {
+    Meeting meeting = new MockMeetingImpl(1, date, contacts);
+    Set<Contact> testContacts = meeting.getContacts();
+    testContacts.add(new ContactImpl(3, "Bart"));
+    assertFalse(testContacts.size() == meeting.getContacts().size());
+  }
 }
