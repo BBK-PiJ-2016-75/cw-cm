@@ -4,10 +4,8 @@ import impl.ContactManagerImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import spec.Contact;
-import spec.Meeting;
 
-import java.util.HashMap;
+import java.util.Calendar;
 
 import static org.junit.Assert.fail;
 
@@ -15,17 +13,19 @@ import static org.junit.Assert.fail;
  * Created by Dennis on 19/03/2017.
  */
 public class ContactManagerImplTest {
-  private HashMap<Integer, Meeting> meetings;
-  private HashMap<Integer, Contact> attendees;
-  private int meetingIndex;
-  private int attendeeIndex;
+  private ContactManagerImpl contactManager;
+  private Calendar currentDate;
+  private Calendar pastDate;
+  private Calendar futureDate;
 
   @Before
   public void setUp() {
-    meetings = new HashMap<>();
-    attendees = new HashMap<>();
-    meetingIndex = 1;
-    attendeeIndex = 1;
+    contactManager = new ContactManagerImpl();
+    currentDate = Calendar.getInstance();
+    pastDate = Calendar.getInstance();
+    pastDate.add(Calendar.YEAR, -1);
+    futureDate = Calendar.getInstance();
+    futureDate.add(Calendar.YEAR, 1);
   }
 
   @After
@@ -77,8 +77,9 @@ public class ContactManagerImplTest {
   public void addMeetingNotes() {
   }
 
-  @Test
-  public void addNewContact() {
+  @Test(expected = NullPointerException.class)
+  public void testContactManager_addNewContactNullName() {
+    contactManager.addNewContact(null, "Donuts");
   }
 
   @Test
