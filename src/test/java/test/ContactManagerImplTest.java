@@ -1,5 +1,6 @@
 package test;
 
+import impl.ContactImpl;
 import impl.ContactManagerImpl;
 import org.junit.After;
 import org.junit.Before;
@@ -7,7 +8,6 @@ import org.junit.Test;
 import spec.Contact;
 
 import java.util.Calendar;
-import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -18,14 +18,12 @@ import static org.junit.Assert.fail;
  */
 public class ContactManagerImplTest {
   private ContactManagerImpl contactManager;
-  private Calendar currentDate;
   private Calendar pastDate;
   private Calendar futureDate;
 
   @Before
   public void setUp() {
     contactManager = new ContactManagerImpl();
-    currentDate = Calendar.getInstance();
     pastDate = Calendar.getInstance();
     pastDate.add(Calendar.YEAR, -1);
     futureDate = Calendar.getInstance();
@@ -52,14 +50,23 @@ public class ContactManagerImplTest {
 
   @Test(expected = NullPointerException.class)
   public void testContactManager_addFutureMeetingDateIsNull() {
-    Set<Contact> attendees = new HashSet<>();
+    Set<Contact> attendees = contactManager.getContacts("");
     contactManager.addFutureMeeting(attendees, null);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testContactManager_addFutureMeetingDateIsPast() {
-    Set<Contact> attendees = new HashSet<>();
+    Set<Contact> attendees = contactManager.getContacts("");
     contactManager.addFutureMeeting(attendees, pastDate);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testContactManager_addFutureMeetingContactsIncludesUnknown() {
+    contactManager.addNewContact("Homer", "Donuts");
+    contactManager.addNewContact("Marge", "Hmmmmm");
+    Set<Contact> attendees = contactManager.getContacts("");
+    attendees.add(new ContactImpl(1, "Bart"));
+    contactManager.addFutureMeeting(attendees, futureDate);
   }
 
   @Test

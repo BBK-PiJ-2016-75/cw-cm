@@ -45,6 +45,10 @@ public class ContactManagerImpl implements ContactManager {
     if (contacts == null || date == null) {
       throw new NullPointerException();
     }
+    Calendar currentDate = Calendar.getInstance();
+    if (date.before(currentDate)) {
+      throw new IllegalArgumentException("The date is already past.");
+    }
     return 0;
   }
 
