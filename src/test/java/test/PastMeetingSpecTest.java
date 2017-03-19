@@ -26,7 +26,7 @@ public class PastMeetingSpecTest {
     contacts = new HashSet<Contact>();
     contacts.add(new MockContactImpl());
     contacts.add(new MockContactImpl());
-    pastMeeting = new PastMeetingImpl(0, pastDate, contacts, "");
+    pastMeeting = new PastMeetingImpl(1, pastDate, contacts, "");
   }
 
   @Test

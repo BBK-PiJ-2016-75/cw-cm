@@ -7,6 +7,7 @@ import spec.Meeting;
 import spec.PastMeeting;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -14,11 +15,19 @@ import java.util.Set;
  * Created by Dennis on 18/03/2017.
  */
 public class ContactManagerImpl implements ContactManager {
+  private final HashMap<Integer, Meeting> meetings;
+  private final HashMap<Integer, Contact> attendees;
+  private final int meetingIndex;
+  private final int attendeeIndex;
 
   /**
    * dennis.
    */
   public ContactManagerImpl() {
+    this.meetings = new HashMap<>();
+    this.attendees = new HashMap<>();
+    this.meetingIndex = 1;
+    this.attendeeIndex = 1;
   }
 
   /**
