@@ -2,7 +2,6 @@ package test;
 
 import impl.ContactImpl;
 import impl.PastMeetingImpl;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import spec.Contact;
@@ -30,10 +29,6 @@ public class PastMeetingImplTest {
     contacts.add(new ContactImpl(1, "Homer"));
     contacts.add(new ContactImpl(2, "Marge", "Hmmmmm"));
     notes = "";
-  }
-
-  @After
-  public void tearDown() {
   }
 
   @Test
