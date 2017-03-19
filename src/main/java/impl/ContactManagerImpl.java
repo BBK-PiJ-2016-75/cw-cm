@@ -14,7 +14,7 @@ import java.util.*;
 public class ContactManagerImpl implements ContactManager {
   private final HashMap<Integer, Meeting> meetings;
   private final HashMap<Integer, Contact> attendees;
-  private final int meetingIndex;
+  private int meetingIndex;
   private int attendeeIndex;
 
   /**
@@ -49,7 +49,16 @@ public class ContactManagerImpl implements ContactManager {
     if (date.before(currentDate)) {
       throw new IllegalArgumentException("The date is already past.");
     }
-    return 0;
+    for (Contact contact : contacts) {
+      if (!attendees.containsValue(contact)) {
+        throw new IllegalArgumentException("Unknown contact.");
+      }
+    }
+    int result = meetingIndex;
+    Meeting meeting = new FutureMeetingImpl(meetingIndex, date, contacts);
+    meetings.put(meetingIndex, meeting);
+    meetingIndex++;
+    return result;
   }
 
   /**
@@ -242,7 +251,7 @@ public class ContactManagerImpl implements ContactManager {
     Set<Contact> result = new LinkedHashSet<>();
     for (int id : ids) {
       if (id < 1 || id > attendeeIndex) {
-        throw new IllegalArgumentException("One or more ids is out of range.");
+        throw new IllegalArgumentException("One or more ids are out of range.");
       }
       result.add(attendees.get(id));
     }
