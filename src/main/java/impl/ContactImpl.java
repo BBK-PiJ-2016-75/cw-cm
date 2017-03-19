@@ -21,7 +21,7 @@ public class ContactImpl implements Contact {
    */
   public ContactImpl(final int id, final String name, final String notes) {
     if (id < 1) {
-      throw new IllegalArgumentException();
+      throw new IllegalArgumentException("Contact ID must be 1 or greater.");
     }
     if (name == null || notes == null) {
       throw new NullPointerException();

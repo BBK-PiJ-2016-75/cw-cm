@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 /**
@@ -75,5 +76,13 @@ public class MeetingImplTest {
   public void testMeeting_ContactsIsEmpty() {
     contacts.clear();
     Meeting meeting = new MockMeetingImpl(1, date, contacts);
+  }
+
+  @Test
+  public void testMeeting_DateIsMutable() {
+    Meeting meeting = new MockMeetingImpl(1, date, contacts);
+    Calendar testDate = meeting.getDate();
+    testDate.add(Calendar.YEAR, 1);
+    assertFalse(testDate.get(Calendar.YEAR) == meeting.getDate().get(Calendar.YEAR));
   }
 }

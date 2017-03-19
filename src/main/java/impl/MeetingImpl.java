@@ -22,10 +22,13 @@ public abstract class MeetingImpl implements Meeting {
    */
   MeetingImpl(final int id, final Calendar date, final Set<Contact> contacts) {
     if (id < 1) {
-      throw new IllegalArgumentException();
+      throw new IllegalArgumentException("Meeting ID must be 1 or greater.");
     }
     if (date == null || contacts == null) {
       throw new NullPointerException();
+    }
+    if (contacts.isEmpty()) {
+      throw new IllegalArgumentException("Set of contacts cannot be empty.");
     }
     this.meetingId = id;
     this.date = date;
