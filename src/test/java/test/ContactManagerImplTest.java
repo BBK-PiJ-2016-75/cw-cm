@@ -11,10 +11,11 @@ import java.util.Calendar;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 /**
- * Created by Dennis on 19/03/2017.
+ * Tests the constructor and the methods of the ContactManagerImpl class.
  */
 public class ContactManagerImplTest {
   private ContactManagerImpl contactManager;
@@ -70,7 +71,17 @@ public class ContactManagerImplTest {
   }
 
   @Test
-  public void getPastMeeting() {
+  public void testContactManager_getPastMeetingIdUnknown() {
+    assertNull(contactManager.getPastMeeting(1));
+  }
+
+  @Test(expected = IllegalStateException.class)
+  public void testContactManager_getPastMeetingDateIsFuture() {
+    contactManager.addNewContact("Homer", "Donuts");
+    contactManager.addNewContact("Marge", "Hmmmmm");
+    Set<Contact> attendees = contactManager.getContacts("");
+    contactManager.addFutureMeeting(attendees, futureDate);
+    contactManager.getPastMeeting(1);
   }
 
   @Test

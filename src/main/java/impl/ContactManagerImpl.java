@@ -9,7 +9,7 @@ import spec.PastMeeting;
 import java.util.*;
 
 /**
- * Created by Dennis on 18/03/2017.
+ * A class to manage your contacts and meetings.
  */
 public class ContactManagerImpl implements ContactManager {
   private final HashMap<Integer, Meeting> meetings;
@@ -18,7 +18,7 @@ public class ContactManagerImpl implements ContactManager {
   private int attendeeIndex;
 
   /**
-   * dennis.
+   * Constructs a contact manager.
    */
   public ContactManagerImpl() {
     this.meetings = new HashMap<>();
@@ -73,7 +73,15 @@ public class ContactManagerImpl implements ContactManager {
    */
   @Override
   public PastMeeting getPastMeeting(final int id) {
-    return null;
+    if (!meetings.containsKey(id)) {
+      return null;
+    }
+    Calendar currentDate = Calendar.getInstance();
+    if (meetings.get(id).getDate().after(currentDate)) {
+      throw new IllegalStateException("The date is in the future.");
+    } else {
+      return (PastMeeting) meetings.get(id);
+    }
   }
 
   /**
@@ -208,6 +216,9 @@ public class ContactManagerImpl implements ContactManager {
     if (text == null) {
       throw new NullPointerException();
     }
+    if (id < 1 || id > meetingIndex) {
+      throw new IllegalArgumentException("No such meeting ID.");
+    }
     return null;
   }
 
@@ -273,7 +284,7 @@ public class ContactManagerImpl implements ContactManager {
     Set<Contact> result = new LinkedHashSet<>();
     for (int id : ids) {
       if (id < 1 || id > attendeeIndex) {
-        throw new IllegalArgumentException("One or more ids are out of range.");
+        throw new IllegalArgumentException("One or more IDs are out of range.");
       }
       result.add(attendees.get(id));
     }
