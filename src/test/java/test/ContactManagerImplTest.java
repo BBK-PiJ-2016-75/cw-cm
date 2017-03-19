@@ -136,6 +136,11 @@ public class ContactManagerImplTest {
     contactManager.addMeetingNotes(1, null);
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void testContactManager_addMeetingNotesIsUnknown() {
+    contactManager.addMeetingNotes(-1, "Was inspiring");
+  }
+
   @Test(expected = NullPointerException.class)
   public void testContactManager_addNewContactNameIsNull() {
     contactManager.addNewContact(null, "Donuts");

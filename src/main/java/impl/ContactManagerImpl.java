@@ -205,6 +205,9 @@ public class ContactManagerImpl implements ContactManager {
    */
   @Override
   public PastMeeting addMeetingNotes(final int id, final String text) {
+    if (text == null) {
+      throw new NullPointerException();
+    }
     return null;
   }
 
