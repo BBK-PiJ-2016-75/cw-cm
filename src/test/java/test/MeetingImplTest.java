@@ -55,4 +55,9 @@ public class MeetingImplTest {
   public void testMeeting_IdIsZero() {
     Meeting meeting = new MockMeetingImpl(0, date, contacts);
   }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testMeeting_IdLessThanZero() {
+    Meeting meeting = new MockMeetingImpl(-1, date, contacts);
+  }
 }
