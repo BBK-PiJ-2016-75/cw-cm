@@ -78,8 +78,13 @@ public class ContactManagerImplTest {
   }
 
   @Test(expected = NullPointerException.class)
-  public void testContactManager_addNewContactNullName() {
+  public void testContactManager_addNewContactNameIsNull() {
     contactManager.addNewContact(null, "Donuts");
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testContactManager_addNewContactNotesIsNull() {
+    contactManager.addNewContact("Homer", null);
   }
 
   @Test
