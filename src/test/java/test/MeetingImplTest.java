@@ -21,7 +21,7 @@ import static org.junit.Assert.fail;
  */
 public class MeetingImplTest {
   private Calendar date;
-  private Set<Contact> contacts;
+  private HashSet<Contact> contacts;
 
   @Before
   public void setUp() throws Exception {
