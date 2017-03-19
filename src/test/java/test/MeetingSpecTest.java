@@ -64,7 +64,7 @@ public class MeetingSpecTest {
   @Test
   public void testUniqueIds() {
     Meeting meetingOne = new MockMeetingImpl(1, nowDate, contacts);
-    Meeting meetingTwo = new MockMeetingImpl(1, nowDate, contacts);
+    Meeting meetingTwo = new MockMeetingImpl(2, nowDate, contacts);
 
     assertThat(meetingOne.getId(), is(not(equalTo(meetingTwo.getId()))));
   }

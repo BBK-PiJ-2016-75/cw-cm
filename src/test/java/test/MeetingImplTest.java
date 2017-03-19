@@ -51,16 +51,8 @@ public class MeetingImplTest {
     assertEquals(contacts, meeting.getContacts());
   }
 
-//  @Test
-//  public void getId() throws Exception {
-//  }
-
-//  @Test
-//  public void getDate() throws Exception {
-//  }
-
-//  @Test
-//  public void getContacts() throws Exception {
-//  }
-
+  @Test(expected = IllegalArgumentException.class)
+  public void testMeeting_IdIsZero() {
+    Meeting meeting = new MockMeetingImpl(0, date, contacts);
+  }
 }

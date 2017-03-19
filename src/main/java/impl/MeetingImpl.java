@@ -10,6 +10,9 @@ import java.util.Set;
  * Created by Dennis on 18/03/2017.
  */
 public abstract class MeetingImpl implements Meeting {
+  private int meetingId;
+  private Calendar date;
+  private Set<Contact> contacts;
 
   /**
    * dennis.
@@ -18,6 +21,9 @@ public abstract class MeetingImpl implements Meeting {
    * @param contacts den
    */
   public MeetingImpl(final int id, final Calendar date, final Set<Contact> contacts) {
+    this.meetingId = id;
+    this.date = date;
+    this.contacts = contacts;
   }
 
   /**
@@ -27,7 +33,7 @@ public abstract class MeetingImpl implements Meeting {
    */
   @Override
   public int getId() {
-    return 0;
+    return meetingId;
   }
 
   /**
@@ -37,7 +43,7 @@ public abstract class MeetingImpl implements Meeting {
    */
   @Override
   public Calendar getDate() {
-    return null;
+    return date;
   }
 
   /**
@@ -51,6 +57,6 @@ public abstract class MeetingImpl implements Meeting {
    */
   @Override
   public Set<Contact> getContacts() {
-    return null;
+    return contacts;
   }
 }
