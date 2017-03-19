@@ -7,6 +7,7 @@ import org.junit.Test;
 import spec.Contact;
 
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -44,8 +45,15 @@ public class ContactManagerImplTest {
     }
   }
 
-  @Test
-  public void addFutureMeeting() {
+  @Test(expected = NullPointerException.class)
+  public void testContactManager_addFutureMeetingContactsIsNull() {
+    contactManager.addFutureMeeting(null, futureDate);
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testContactManager_addFutureMeetingDateIsNull() {
+    Set<Contact> attendees = new HashSet<>();
+    contactManager.addFutureMeeting(attendees, null);
   }
 
   @Test
@@ -123,6 +131,19 @@ public class ContactManagerImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testContactManager_getContactsIdIsIllegal() {
     contactManager.getContacts(-1);
+  }
+
+  @Test
+  public void testContactManager_getContactsId() {
+    contactManager.addNewContact("Homer", "Donuts");
+    contactManager.addNewContact("Marge", "Hmmmmm");
+    contactManager.addNewContact("Bart", "Underachiever");
+    contactManager.addNewContact("Lisa", "Precocious");
+    contactManager.addNewContact("Maggie", "*suck*");
+    Set<Contact> oddNumbered = contactManager.getContacts(1, 3, 5);
+    Set<Contact> evenNumbered = contactManager.getContacts(2, 4);
+    assertEquals(3, oddNumbered.size());
+    assertEquals(2, evenNumbered.size());
   }
 
   @Test

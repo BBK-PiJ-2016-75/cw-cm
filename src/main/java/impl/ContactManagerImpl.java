@@ -42,6 +42,9 @@ public class ContactManagerImpl implements ContactManager {
    */
   @Override
   public int addFutureMeeting(final Set<Contact> contacts, final Calendar date) {
+    if (contacts == null) {
+      throw new NullPointerException();
+    }
     return 0;
   }
 
@@ -232,7 +235,14 @@ public class ContactManagerImpl implements ContactManager {
    */
   @Override
   public Set<Contact> getContacts(final int... ids) {
-    return null;
+    Set<Contact> result = new LinkedHashSet<>();
+    for (int id : ids) {
+      if (id < 1 || id > attendeeIndex) {
+        throw new IllegalArgumentException("One or more ids is out of range.");
+      }
+      result.add(attendees.get(id));
+    }
+    return result;
   }
 
   /**
