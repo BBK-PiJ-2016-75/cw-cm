@@ -87,6 +87,11 @@ public class ContactManagerImplTest {
     contactManager.addNewContact("Homer", null);
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void testContactManager_addNewContactNameIsEmpty() {
+    contactManager.addNewContact("", "Donuts");
+  }
+
   @Test
   public void getContacts() {
   }

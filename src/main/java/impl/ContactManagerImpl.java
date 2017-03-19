@@ -187,8 +187,11 @@ public class ContactManagerImpl implements ContactManager {
    */
   @Override
   public int addNewContact(final String name, final String notes) {
-    if (name == null) {
+    if (name == null || notes == null) {
       throw new NullPointerException();
+    }
+    if (name.equals("")) {
+
     }
     return 0;
   }
