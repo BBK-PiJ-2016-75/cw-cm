@@ -169,6 +169,10 @@ public class ContactManagerImpl implements ContactManager {
     if (contacts == null || date == null || text == null) {
       throw new NullPointerException();
     }
+    Calendar currentDate = Calendar.getInstance();
+    if (date.after(currentDate)) {
+      throw new IllegalArgumentException("The date is in the future.");
+    }
     return 0;
   }
 
