@@ -59,20 +59,8 @@ public class PastMeetingImplTest {
     assertEquals(notes, pastMeeting.getNotes());
   }
 
-//  @Test
-//  public void getNotes() {
-//  }
-
-//  @Test
-//  public void getId() {
-//  }
-
-//  @Test
-//  public void getDate() {
-//  }
-
-//  @Test
-//  public void getContacts() {
-//  }
-
+  @Test(expected = NullPointerException.class)
+  public void testPastMeeting_NotesIsNull() {
+    PastMeeting pastMeeting = new PastMeetingImpl(1, pastDate, contacts, null);
+  }
 }

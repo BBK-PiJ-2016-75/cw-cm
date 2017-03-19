@@ -10,6 +10,7 @@ import java.util.Set;
  * Created by Dennis on 18/03/2017.
  */
 public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
+  private final String notes;
 
   /**
    * dennis.
@@ -21,6 +22,7 @@ public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
   public PastMeetingImpl(final int id, final Calendar date, final Set<Contact> contacts,
                          final String notes) {
     super(id, date, contacts);
+    this.notes = notes;
   }
 
   /**
@@ -31,6 +33,6 @@ public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
    * @return the notes from the meeting.
    */
   public String getNotes() {
-    return null;
+    return notes;
   }
 }
