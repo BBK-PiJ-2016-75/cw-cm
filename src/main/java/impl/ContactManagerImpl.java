@@ -191,7 +191,7 @@ public class ContactManagerImpl implements ContactManager {
       throw new NullPointerException();
     }
     if (name.equals("")) {
-
+      throw new IllegalArgumentException("A required parameter is empty.");
     }
     return 0;
   }
