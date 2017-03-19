@@ -97,8 +97,9 @@ public class ContactManagerImplTest {
     contactManager.addNewContact("Homer", "");
   }
 
-  @Test
-  public void getContacts() {
+  @Test(expected = NullPointerException.class)
+  public void testContactManager_getContactsNameIsNull() {
+    contactManager.getContacts((String) null);
   }
 
   @Test

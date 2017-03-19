@@ -18,7 +18,7 @@ public class ContactManagerImpl implements ContactManager {
   private final HashMap<Integer, Meeting> meetings;
   private final HashMap<Integer, Contact> attendees;
   private final int meetingIndex;
-  private final int attendeeIndex;
+  private int attendeeIndex;
 
   /**
    * dennis.
@@ -190,10 +190,14 @@ public class ContactManagerImpl implements ContactManager {
     if (name == null || notes == null) {
       throw new NullPointerException();
     }
-    if (name.equals("")) {
+    if (name.equals("") || notes.equals("")) {
       throw new IllegalArgumentException("A required parameter is empty.");
     }
-    return 0;
+    int result = attendeeIndex;
+    Contact attendee = new ContactImpl(attendeeIndex, name, notes);
+    attendees.put(attendeeIndex, attendee);
+    attendeeIndex++;
+    return result;
   }
 
   /**
@@ -208,6 +212,9 @@ public class ContactManagerImpl implements ContactManager {
    */
   @Override
   public Set<Contact> getContacts(final String name) {
+    if (name == null) {
+
+    }
     return null;
   }
 
