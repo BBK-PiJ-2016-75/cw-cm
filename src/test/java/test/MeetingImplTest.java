@@ -60,4 +60,9 @@ public class MeetingImplTest {
   public void testMeeting_IdLessThanZero() {
     Meeting meeting = new MockMeetingImpl(-1, date, contacts);
   }
+
+  @Test(expected = NullPointerException.class)
+  public void testMeeting_DateIsNull() {
+    Meeting meeting = new MockMeetingImpl(-1, null, contacts);
+  }
 }

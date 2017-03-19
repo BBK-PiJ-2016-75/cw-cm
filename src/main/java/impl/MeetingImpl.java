@@ -21,7 +21,7 @@ public abstract class MeetingImpl implements Meeting {
    * @param contacts den
    */
   public MeetingImpl(final int id, final Calendar date, final Set<Contact> contacts) {
-    if (id == 0) {
+    if (id < 1) {
       throw new IllegalArgumentException();
     }
     this.meetingId = id;
