@@ -9,8 +9,8 @@ import spec.Contact;
  * necessarily unique), and notes that the user may want to save about them.</p>
  */
 public class ContactImpl implements Contact {
-  private int contactId;
-  private String name;
+  private final int contactId;
+  private final String name;
   private String notes;
 
   /**

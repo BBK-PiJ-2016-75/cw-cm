@@ -10,9 +10,9 @@ import java.util.Set;
  * Created by Dennis on 18/03/2017.
  */
 public abstract class MeetingImpl implements Meeting {
-  private int meetingId;
-  private Calendar date;
-  private Set<Contact> contacts;
+  private final int meetingId;
+  private final Calendar date;
+  private final Set<Contact> contacts;
 
   /**
    * dennis.
@@ -20,11 +20,11 @@ public abstract class MeetingImpl implements Meeting {
    * @param date den
    * @param contacts den
    */
-  public MeetingImpl(final int id, final Calendar date, final Set<Contact> contacts) {
+  MeetingImpl(final int id, final Calendar date, final Set<Contact> contacts) {
     if (id < 1) {
       throw new IllegalArgumentException();
     }
-    if (date == null) {
+    if (date == null || contacts == null) {
       throw new NullPointerException();
     }
     this.meetingId = id;

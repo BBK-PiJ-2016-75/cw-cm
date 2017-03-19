@@ -70,4 +70,10 @@ public class MeetingImplTest {
   public void testMeeting_ContactsIsNull() {
     Meeting meeting = new MockMeetingImpl(1, date, null);
   }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testMeeting_ContactsIsEmpty() {
+    contacts.clear();
+    Meeting meeting = new MockMeetingImpl(1, date, contacts);
+  }
 }
