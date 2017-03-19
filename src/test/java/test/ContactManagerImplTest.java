@@ -98,6 +98,12 @@ public class ContactManagerImplTest {
     contactManager.addNewPastMeeting(null, pastDate, "Was productive");
   }
 
+  @Test(expected = NullPointerException.class)
+  public void testContactManager_addNewPastMeetingDateIsNull() {
+    Set<Contact> attendees = contactManager.getContacts("");
+    contactManager.addNewPastMeeting(attendees, null, "Was productive");
+  }
+
   @Test
   public void addMeetingNotes() {
   }
